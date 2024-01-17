@@ -97,7 +97,7 @@ namespace QoL {
         }
 
         private void OnServerLeave(LeaveEventArgs args) {
-            if (OngoingVoters.ContainsKey(TShock.Players[args.Who].Name)) {
+            if (TShock.Players[args.Who] != null && OngoingVoters.ContainsKey(TShock.Players[args.Who].Name)) {
                 OngoingVoteCount += OngoingVoters[TShock.Players[args.Who].Name] ? -1: 1;
                 OngoingVoters.Remove(TShock.Players[args.Who].Name);
             }
